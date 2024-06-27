@@ -1,0 +1,8 @@
+ROOT=$(
+    cd "$(dirname "$0")" || exit
+    pwd
+)
+
+[ -f "${ROOT}/src/Makevars.win" ] && rm "${ROOT}/src/Makevars.win"
+rm "${ROOT}"/src/include/config.h
+find "${ROOT}/src" -name '*.o' -not -path "*/tests/*" -exec rm {} \;
